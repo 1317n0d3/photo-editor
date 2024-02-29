@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/css/styles.css">
+  <title>Photo editor</title>
+</head>
+<body>
+  <div class="output-container">
+    <label class="custom-file-upload">
+      <input type="file" id="newImage" accept="image/png, image/jpeg">
+      Choose image
+    </label>
+    <canvas id="canvas" width="640" height="420"></canvas>
+  </div>
+
+  <div class="image-parameters">
+    settings
+  </div>
+
+  <script src="opencv.js" type="text/javascript"></script>
+  <script src="./src/js/index.js"></script>
+</body>
+</html>
