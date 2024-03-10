@@ -9,6 +9,7 @@ inputElement.addEventListener(
 );
 imgElement.onload = function () {
   let mat = cv.imread(imgElement);
+  console.log(mat.cols, mat.rows);
   cv.imshow("canvasOutput", mat);
   mat.delete();
 };

@@ -10,11 +10,18 @@ input[type="file"] {
 
 .wrapper {
   display: flex;
+  border: 1px solid black;
+  justify-content: center;
+}
+
+.output {
+  max-width: 25vw;
+  max-height: 90vh;
 }
 
 .inputoutput {
-  max-width: 33vw;
-  max-height: 50vh;
+  /* max-width: 33vw;
+  max-height: 50vh; */
 }
 
 .custom-file-upload {
