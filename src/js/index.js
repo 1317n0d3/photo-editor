@@ -1,16 +1,25 @@
 let imgElement = document.getElementById("imageSrc");
 let inputElement = document.getElementById("fileInput");
+
+let fileSizeInKb = 0;
+
 inputElement.addEventListener(
   "change",
   (e) => {
-    imgElement.src = URL.createObjectURL(e.target.files[0]);
+    const file = e.target.files[0];
+    imgElement.src = URL.createObjectURL(file);
+
+    fileSizeInKb = Math.round(file.size / 1024);
   },
   false
 );
+
 imgElement.onload = function () {
   let mat = cv.imread(imgElement);
-  console.log(mat.cols, mat.rows);
+  setImageInfo(imgElement, fileSizeInKb);
+
   cv.imshow("canvasOutput", mat);
+
   mat.delete();
 };
 
