@@ -22,7 +22,7 @@ const FileInput: FC<Props> = (props) => {
             }
           }}
         />
-        Open image
+        Load image
       </label>
     </div>
   );

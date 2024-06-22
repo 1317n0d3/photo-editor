@@ -1,29 +1,38 @@
 @import '../../constants/colors.scss';
 
 .wrapper {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+}
+
+.container {
   margin: 20px;
   padding: 14px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   border: 2px dotted $gray;
   border-radius: 15px;
   min-height: calc(100vh - 76px);
+  gap: 14px;
 }
 
 .output {
-  /* width: 25vw;
-  height: 60vh; */
-  max-width: 40vw;
-  max-height: 60vh;
+  width: 100%;
+  max-height: 80vh;
   border-radius: 14px;
   border: 2px solid $gray;
 }
 
-[src=''] {
-  min-width: 25vw;
-  min-height: 60vh;
+.outputSkeleton {
+  width: 80vh;
+  height: 80vh;
+  border-radius: 14px;
+  border: 2px solid $gray;
+}
+
+img.output {
+  display: none;
 }
 
 .outputContainer {
@@ -35,7 +44,8 @@
 }
 
 .inputOutput {
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  gap: 100px;
+  justify-content: center;
+  align-items: center;
 }

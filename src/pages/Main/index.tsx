@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import FileInput from "../../components/FileInput";
 import styles from "./Main.module.scss";
 import cv from "@techstark/opencv-js";
+import Sidebar from "../../components/Sidebar";
 
 const Main = () => {
   const [imgUrl, setImgUrl] = useState<string>("");
@@ -25,35 +26,41 @@ const Main = () => {
 
   return (
     <div className={styles.wrapper}>
-      <FileInput handleImgUrlChange={handleImgUrlChange} />
-      {/* <div class="inputoutput"> */}
-      {/* <div class="output-container"> */}
-      {/* <div class="output-container"> */}
-      {imgUrl && (
-        <div className={styles.inputOutput}>
-          <div className={styles.outputContainer}>
-            <label>Source</label>
-            <img
-              className={styles.output}
-              src={imgUrl}
-              alt="empty"
-              onLoad={(e) => proccessImage(e.target as HTMLImageElement)}
-            />
+      <div className={styles.container}>
+        <FileInput handleImgUrlChange={handleImgUrlChange} />
+
+        {imgUrl && (
+          <div className={styles.inputOutput}>
+            <div className={styles.outputContainer}>
+              <img
+                className={styles.output}
+                src={imgUrl}
+                alt="empty"
+                onLoad={(e) => proccessImage(e.target as HTMLImageElement)}
+              />
+            </div>
+            <div className={styles.outputContainer}>
+              <canvas className={styles.output} ref={canvas}></canvas>
+            </div>
           </div>
-          <div className={styles.outputContainer}>
-            <label>Result</label>
-            <canvas className={styles.output} ref={canvas}></canvas>
+        )}
+
+        {!imgUrl && (
+          <div className={styles.inputOutput}>
+            <div className={styles.outputContainer}>
+              <div className={styles.outputSkeleton}></div>
+            </div>
           </div>
-        </div>
-      )}
-      {/* <div class="info"> */}
-      <div>
-        <div id="infoSize">Size KB</div>
-        <div id="infoResolution">Resolution</div>
-        <div id="infoColorDepth">Color depth</div>
-        <div id="infoFileFormat">File format</div>
-        <div id="infoColorScheme">Color scheme</div>
+        )}
+        {/* <div>
+          <div id="infoSize">Size KB</div>
+          <div id="infoResolution">Resolution</div>
+          <div id="infoColorDepth">Color depth</div>
+          <div id="infoFileFormat">File format</div>
+          <div id="infoColorScheme">Color scheme</div>
+        </div> */}
       </div>
+      <Sidebar />
     </div>
   );
 };
